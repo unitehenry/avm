@@ -14,11 +14,11 @@ export interface GetProductsResponse {
   products: Product[];
 }
 
-export interface OrderRequest {
+export interface CreateOrderRequest {
   items: Map<string, number>;
   note: string;
 }
 
-export interface OrderResponse {
+export interface CreateOrderResponse {
   order: Order;
 }
