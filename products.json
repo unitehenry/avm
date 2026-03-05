@@ -1,8 +1,62 @@
 [
   {
-    "id": "123",
+    "id": "ffa38e5d-fabd-4d5f-b844-c41bc1ee476d",
     "name": "Candy Bar",
     "description": "Buy my candy bar",
     "price": 1.00
+  },
+  {
+    "id": "12345678-abcd-1234-5678-abcdef123456",
+    "name": "Chocolate",
+    "description": "Rich dark chocolate",
+    "price": 2.50
+  },
+  {
+    "id": "87654321-dcba-4321-8765-fedcba654321",
+    "name": "Gum",
+    "description": "Chewy bubble gum",
+    "price": 0.75
+  },
+  {
+    "id": "abcdef12-3456-7890-abcd-ef1234567890",
+    "name": "Soda",
+    "description": "Refreshing cola drink",
+    "price": 1.25
+  },
+  {
+    "id": "fedcba98-7654-3210-fedc-ba9876543210",
+    "name": "Chips",
+    "description": "Crunchy potato chips",
+    "price": 1.99
+  },
+  {
+    "id": "11223344-5566-7788-99aa-bbccddeeff00",
+    "name": "Cookie",
+    "description": "Delicious chocolate chip cookie",
+    "price": 1.50
+  },
+  {
+    "id": "aa112233-4455-6677-8899-aabbccddeeff",
+    "name": "Ice Cream",
+    "description": "Vanilla ice cream scoop",
+    "price": 3.00
+  },
+  {
+    "id": "ffeeddcc-bbaa-9988-7766-554433221100",
+    "name": "Popcorn",
+    "description": "Buttered popcorn kernels",
+    "price": 2.25
+  },
+  {
+    "id": "00112233-4455-6677-8899-aabbccddeeff",
+    "name": "Yogurt",
+    "description": "Creamy Greek yogurt",
+    "price": 1.75
+  },
+  {
+    "id": "eeddccbb-aa99-8877-6655-4433221100ff",
+    "name": "Juice",
+    "description": "Fresh orange juice",
+    "price": 2.00
   }
 ]
