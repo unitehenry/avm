@@ -4,8 +4,11 @@ import {
   type CreateOrderRequest,
   type CreateOrderResponse,
 } from "./types.ts";
+import log from "./log.ts";
 
 export default (req: Request, res: Response) => {
+  log("INFO", "Create Order", { body: req.body });
+
   const request: CreateOrderRequest = req.body;
 
   const order: Order = {
@@ -14,6 +17,8 @@ export default (req: Request, res: Response) => {
   };
 
   const response: CreateOrderResponse = { order };
+
+  log("INFO", "Create Order Response", { response });
 
   res.send(response);
 };
