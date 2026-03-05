@@ -3,4 +3,4 @@ bash scripts/version.sh
 
 node --no-warnings \
   --experimental-transform-types \
-  app.ts
+  src/app.ts
