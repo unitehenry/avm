@@ -1,5 +1,4 @@
 import express from "express";
-import { type Product } from "./types.ts";
 import products from './products.ts';
 import log from "./log.ts";
 
