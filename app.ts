@@ -6,13 +6,13 @@ function log(
   message?: string,
   data?: Record<string, any>,
 ) {
-  console.log(
+  process.stdout.write(
     JSON.stringify({
       level,
       timestamp: new Date().toISOString(),
       message,
       ...data,
-    }),
+    }) + "\n",
   );
 }
 
