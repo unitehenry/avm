@@ -10,7 +10,7 @@ export default (req: Request, res: Response) => {
 
   const order: Order = {
     id: "123",
-    checkoutUrl: "https://stripe.com",
+    checkoutUrl: "https://checkout.stripe.dev/checkout",
   };
 
   const response: CreateOrderResponse = { order };
