@@ -9,6 +9,8 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+app.use(express.json());
+
 app.set("trust proxy", true);
 
 app.get("/install.sh", install);

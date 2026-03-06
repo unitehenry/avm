@@ -1,16 +1,26 @@
 import { type Request, type Response } from "express";
 import { type Product, type GetProductsResponse } from "./types.ts";
+import stripe from "stripe";
 import log from "./log.ts";
 import fs from "fs";
 
-export default (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
   log("INFO", "Get Products Request");
 
-  const products: Product[] = JSON.parse(
-    fs.readFileSync("products.json", "utf-8"),
-  );
+  const client = stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
 
-  const response: GetProductsResponse = { products };
+  log("INFO", "Getting stripe products");;
 
-  res.send(response);
+  const stripeProducts = await client.products.list({ expand: [ 'data.default_price' ] });
+
+  const products = stripeProducts.data.map(product => ({
+    id: product.default_price.id,
+    name: product.name,
+    description: product.description,
+    price: product.default_price.unit_amount_decimal
+  }));
+
+  log("INFO", "Stripe returned products", { products });
+
+  res.send({ products });
 };

@@ -21,10 +21,10 @@ It should return an output like this:
 {
     "products": [
         {
-            "id": "eeddccbb-aa99-8877-6655-4433221100ff",
-            "description": "Fresh orange juice",
-            "name": "Juice",
-            "price": 2
+            "description": "An energy drink",
+            "id": "price_1T7nUDK33cw0QOKNb98MqEp7",
+            "name": "Red Bull",
+            "price": "100"
         }
     ]
 }
@@ -37,7 +37,9 @@ Use this list to request what items the user would [like to order](#create-an-or
 Create an order with this command:
 
 ```bash
-curl -X POST 'http://localhost:3000/orders'
+curl -X POST 'http://localhost:3000/orders' \
+    -H "content-type: application/json" \
+    -d '{ "order": { "items": { "price_1T7nUDK33cw0QOKNb98MqEp7": 1 } } }'
 ```
 
 It should return an output like this:

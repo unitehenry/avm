@@ -3,4 +3,5 @@ bash scripts/version.sh
 
 npm install typescript \
   express \
-  @types/express
+  @types/express \
+  stripe

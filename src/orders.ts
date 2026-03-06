@@ -4,16 +4,34 @@ import {
   type CreateOrderRequest,
   type CreateOrderResponse,
 } from "./types.ts";
+import stripe from "stripe";
 import log from "./log.ts";
 
-export default (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
   log("INFO", "Create Order", { body: req.body });
 
   const request: CreateOrderRequest = req.body;
 
+  const client = stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
+
+  const { items } = request.order;
+
+  const lineItems = Object.keys(items).map(key => ({
+    price: key,
+    quantity: items[key],
+  }));
+
+  const success_url = `${req.protocol}://${req.get("host")}/SKILL.md`;
+
+  const session = await client.checkout.sessions.create({
+    success_url,
+    line_items: lineItems,
+    mode: 'payment',
+  });
+
   const order: Order = {
-    id: "123",
-    checkoutUrl: "https://checkout.stripe.dev/checkout",
+    id: session.id,
+    checkoutUrl: session.url,
   };
 
   const response: CreateOrderResponse = { order };
