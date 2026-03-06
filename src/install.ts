@@ -6,20 +6,13 @@ export default async (req: Request, res: Response) => {
   try {
     const origin = `${req.protocol}://${req.get("host")}`;
 
-    const skillContent = await fs.readFile(
-      ".agents/skills/avm/SKILL.md",
-      "utf-8",
-    );
+    const response = `curl -o .claude/skills/agent-vending-machine/SKILL.md --create-dirs ${origin}/SKILL.md`;
 
-    log("INFO", "Serving skill file", { origin });
-
-    const response = skillContent.replaceAll('http://localhost:3000', origin);
-
-    res.set("Content-Type", "text/markdown");
+    log("INFO", "Serving install script", { origin });
 
     res.send(response);
   } catch (error) {
-    const errorMessage = "Error reading skill file";
+    const errorMessage = "Error serving install script";
 
     log("ERROR", errorMessage, error);
 

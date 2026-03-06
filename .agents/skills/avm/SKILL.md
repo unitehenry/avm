@@ -1,15 +1,11 @@
 ---
 name: agent-vending-machine
 description: Purchase products from agent vending machine
-metadata:
-    agent-vending-machine-host: 127.0.0.1:3000
 ---
 
 # Agent Vending Machine
 
 Use this skill to purchase products from a vending machine.
-
-Any `localhost:3000` should be replaced with the `agent-vending-machine-host` metadata value.
 
 ## Query Products
 
@@ -55,7 +51,7 @@ It should return an output like this:
 }
 ```
 
-If the user has `open` try opening the link:
+Try opending the `checkoutUrl` returned:
 
 ```bash
 # order.checkoutUrl
