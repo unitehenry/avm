@@ -21,4 +21,20 @@ app.get("/products", products);
 
 app.post("/orders", orders);
 
-app.listen(port, () => log("INFO", "Server running", { port }));
+const server = app.listen(port, () => {
+  if (!process.env.STRIPE_API_KEY) {
+    log("ERROR", "No stripe api key");
+
+    process.exit(1);
+  }
+
+  log("INFO", "Server running", { port });
+});
+
+process.on('SIGINT', () => {
+  log("INFO", "Received SIGINT, shutting down gracefully...");
+  server.close(() => {
+    log("INFO", "Server closed");
+    process.exit(0);
+  });
+});

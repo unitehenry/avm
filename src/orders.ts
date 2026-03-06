@@ -12,11 +12,11 @@ export default async (req: Request, res: Response) => {
 
   const request: CreateOrderRequest = req.body;
 
-  const client = new Stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
+  const client = new Stripe(process.env.STRIPE_API_KEY);
 
   const { items } = request;
 
-  const lineItems = Object.keys(items).map(key => ({
+  const lineItems = Object.keys(items).map((key) => ({
     price: key,
     quantity: items[key],
   }));
@@ -26,7 +26,7 @@ export default async (req: Request, res: Response) => {
   const session = await client.checkout.sessions.create({
     success_url,
     line_items: lineItems,
-    mode: 'payment',
+    mode: "payment",
   });
 
   const order: Order = {
