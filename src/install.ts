@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
 import { promises as fs } from "fs";
-import log from "./log.ts"
+import log from "./log.ts";
 
 export default async (req: Request, res: Response) => {
   try {

@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
 import { promises as fs } from "fs";
-import log from "./log.ts"
+import log from "./log.ts";
 
 export default async (req: Request, res: Response) => {
   try {
@@ -13,7 +13,7 @@ export default async (req: Request, res: Response) => {
 
     log("INFO", "Serving skill file", { origin });
 
-    const response = skillContent.replaceAll('http://localhost:3000', origin);
+    const response = skillContent.replaceAll("http://localhost:3000", origin);
 
     res.set("Content-Type", "text/markdown");
 
