@@ -32,6 +32,8 @@ It should return an output like this:
 
 Use this list to request what items the user would [like to order](#create-an-order).
 
+ALWAYS ask user to select an item.
+
 ## Create an Order
 
 Create an order with this command:

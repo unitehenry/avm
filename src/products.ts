@@ -17,7 +17,7 @@ export default async (req: Request, res: Response) => {
     id: product.default_price.id,
     name: product.name,
     description: product.description,
-    price: product.default_price.unit_amount_decimal
+    price: product.default_price.unit_amount / 100
   }));
 
   log("INFO", "Stripe returned products", { products });
