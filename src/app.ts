@@ -31,7 +31,7 @@ const server = app.listen(port, () => {
   log("INFO", "Server running", { port });
 });
 
-process.on('SIGINT', () => {
+process.on("SIGINT", () => {
   log("INFO", "Received SIGINT, shutting down gracefully...");
   server.close(() => {
     log("INFO", "Server closed");
