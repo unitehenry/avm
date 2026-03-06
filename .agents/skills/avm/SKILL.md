@@ -39,7 +39,7 @@ Create an order with this command:
 ```bash
 curl -X POST 'http://localhost:3000/orders' \
     -H "content-type: application/json" \
-    -d '{ "order": { "items": { "price_1T7nUDK33cw0QOKNb98MqEp7": 1 } } }'
+    -d '{"items": { "price_1T7nUDK33cw0QOKNb98MqEp7": 1 } }'
 ```
 
 It should return an output like this:

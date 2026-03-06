@@ -4,7 +4,7 @@ import {
   type CreateOrderRequest,
   type CreateOrderResponse,
 } from "./types.ts";
-import stripe from "stripe";
+import Stripe from "stripe";
 import log from "./log.ts";
 
 export default async (req: Request, res: Response) => {
@@ -12,9 +12,9 @@ export default async (req: Request, res: Response) => {
 
   const request: CreateOrderRequest = req.body;
 
-  const client = stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
+  const client = new Stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
 
-  const { items } = request.order;
+  const { items } = request;
 
   const lineItems = Object.keys(items).map(key => ({
     price: key,

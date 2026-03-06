@@ -1,13 +1,13 @@
 import { type Request, type Response } from "express";
 import { type Product, type GetProductsResponse } from "./types.ts";
-import stripe from "stripe";
+import Stripe from "stripe";
 import log from "./log.ts";
 import fs from "fs";
 
 export default async (req: Request, res: Response) => {
   log("INFO", "Get Products Request");
 
-  const client = stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
+  const client = new Stripe("sk_test_51T7jcmK33cw0QOKNY8i6GJCgZgAKLwp4TaZ6sFi7yH0Sxy1fiiIQLFmyRSz15WB17qQglJs1poiYXzOH7wgCaCnY00Q9L3gaAr");
 
   log("INFO", "Getting stripe products");;
 
